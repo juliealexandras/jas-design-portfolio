@@ -1,16 +1,17 @@
 export const site = {
-  name: "Julie Alexandra",
+  name: "Julie Spigner",
   firstName: "Julie",
   role: "Product designer",
-  email: "hello@juliealexandra.com",
-  location: "Los Angeles / New York",
-  education: "B.A. Interaction Design",
+  email: "juliealexandrastudio@gmail.com",
+  location: "Seattle / Washington",
   linkedin: "https://www.linkedin.com/in/juliealexandra",
   github: "https://github.com/juliealexandra",
+  repo: "https://github.com/juliealexandras/jas-design-portfolio",
+  changelogDate: "2026-08-12",
   tagline:
-    "Designing products to spark moments of delight & human connection.",
-  previously: ["Studio North", "Lumen", "Atlas"],
-  aboutTagline: "Product, design,\n& everything in between.",
+    "Designing thoughtful, accessible, and scalable digital products.",
+  previously: ["Amazon"],
+  aboutTagline: "Product, design, andeverything in between.",
 };
 
 export const nav = [

@@ -3,27 +3,6 @@ import { Monogram } from "@/components/Monogram";
 import { SocialLinks } from "@/components/SocialLinks";
 import { nav, site, type TabId } from "@/lib/content";
 
-function ContactBadge() {
-  return (
-    <span className="mt-3 hidden items-center gap-2 md:inline-flex">
-      <span className="relative inline-flex size-4 items-center justify-center">
-        <span className="pulse-ring absolute size-2.5 rounded-full bg-[#10B981]" />
-        <span className="relative size-2 rounded-full bg-[#10B981]" />
-      </span>
-      <span className="text-lg tracking-wide text-zinc-500">
-        Working on something cool? Get in{" "}
-        <a
-          href={`mailto:${site.email}`}
-          className="font-medium text-zinc-700 underline decoration-zinc-300 underline-offset-4 transition-colors hover:text-zinc-900 hover:decoration-zinc-500"
-        >
-          touch
-        </a>
-        !
-      </span>
-    </span>
-  );
-}
-
 function Hero({ tab }: { tab: TabId }) {
   if (tab === "about") {
     return (
@@ -59,17 +38,6 @@ function Hero({ tab }: { tab: TabId }) {
             </span>
           ))}
         </p>
-        <p className="mt-2 md:hidden">
-          Working on something cool? Get in{" "}
-          <a
-            href={`mailto:${site.email}`}
-            className="font-medium text-zinc-700 underline decoration-zinc-300 underline-offset-4"
-          >
-            touch
-          </a>
-          !
-        </p>
-        <ContactBadge />
       </div>
     </div>
   );
@@ -156,20 +124,19 @@ export function SiteChrome({
       <footer className="mt-auto w-full px-6 pt-16 pb-10 md:px-16 md:pt-24 md:pb-12">
         <div className="h-px w-full bg-zinc-100" />
         <div className="flex flex-col items-start gap-4 pt-10 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-3xl font-medium tracking-[0.0125em] text-[#3f3f46] md:text-4xl">
-              Let&apos;s work together!
-            </p>
-            <a
-              href={`mailto:${site.email}`}
-              className="mt-2 inline-block text-lg tracking-wide text-zinc-500 underline decoration-zinc-300 underline-offset-4 transition-colors hover:text-zinc-700"
-            >
-              {site.email}
-            </a>
-          </div>
           <SocialLinks compact />
         </div>
-        <p className="mt-8 text-sm text-zinc-500">Built with Next.js</p>
+        <p className="mt-8 text-sm text-zinc-500">Built with Next.js and Cursor.</p>
+        <p className="mt-1 text-sm text-zinc-500">
+          <a
+            href={site.repo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-zinc-300 underline-offset-4 transition-colors hover:text-zinc-700"
+          >
+            Change Log {site.changelogDate}
+          </a>
+        </p>
       </footer>
     </div>
   );

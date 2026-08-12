@@ -1,0 +1,84 @@
+import { site } from "@/lib/content";
+
+function LinkedInIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="size-5"
+      aria-hidden="true"
+      focusable="false"
+      fill="currentColor"
+    >
+      <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z" />
+    </svg>
+  );
+}
+
+function GitHubIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="size-5"
+      aria-hidden="true"
+      focusable="false"
+      fill="currentColor"
+    >
+      <path d="M12 .3a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.23v3.3c0 .32.22.7.82.58A12 12 0 0 0 12 .3z" />
+    </svg>
+  );
+}
+
+const iconClass =
+  "inline-flex size-11 items-center justify-center rounded-full text-zinc-500 transition-colors duration-200 hover:text-zinc-700";
+
+export function SocialLinks({ compact = false }: { compact?: boolean }) {
+  const cls = compact
+    ? "inline-flex size-10 items-center justify-center rounded-full text-zinc-500 transition-colors duration-200 hover:text-zinc-700"
+    : iconClass;
+
+  return (
+    <ul className="flex items-center">
+      <li>
+        <a
+          href={site.linkedin}
+          className={cls}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn (opens in a new tab)"
+        >
+          <LinkedInIcon />
+        </a>
+      </li>
+      <li>
+        <a
+          href={site.github}
+          className={cls}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub (opens in a new tab)"
+        >
+          <GitHubIcon />
+        </a>
+      </li>
+    </ul>
+  );
+}
+
+export function LockIcon({ className = "size-4" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      aria-hidden="true"
+      focusable="false"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="5" y="11" width="14" height="10" rx="2" />
+      <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+    </svg>
+  );
+}

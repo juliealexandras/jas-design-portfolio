@@ -3,8 +3,8 @@ import { Monogram } from "@/components/Monogram";
 import { SocialLinks } from "@/components/SocialLinks";
 import { nav, site, type TabId } from "@/lib/content";
 
-// Intro under the logo. About uses a shorter tagline; Work and Playground
-// share the main tagline.
+// Intro under the logo. About uses a shorter tagline; Work, Notes, and
+// Playground share the main tagline.
 function Hero({ tab }: { tab: TabId }) {
   if (tab === "about") {
     return (
@@ -31,7 +31,7 @@ function Hero({ tab }: { tab: TabId }) {
   );
 }
 
-// Work / About / Playground pill navigation
+// Work / About / Notes / Playground pill navigation
 function TabNav({ tab }: { tab: TabId }) {
   return (
     <nav

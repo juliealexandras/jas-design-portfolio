@@ -1,6 +1,6 @@
 import { site } from "@/lib/content";
 
-// Header and footer LinkedIn / GitHub icons
+// Header and footer LinkedIn / Bluesky / GitHub icons
 function LinkedInIcon() {
   return (
     <svg
@@ -11,6 +11,20 @@ function LinkedInIcon() {
       fill="currentColor"
     >
       <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z" />
+    </svg>
+  );
+}
+
+function BlueskyIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="size-5"
+      aria-hidden="true"
+      focusable="false"
+      fill="currentColor"
+    >
+      <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z" />
     </svg>
   );
 }
@@ -48,6 +62,17 @@ export function SocialLinks({ compact = false }: { compact?: boolean }) {
           aria-label="LinkedIn (opens in a new tab)"
         >
           <LinkedInIcon />
+        </a>
+      </li>
+      <li>
+        <a
+          href={site.bluesky}
+          className={cls}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Bluesky (opens in a new tab)"
+        >
+          <BlueskyIcon />
         </a>
       </li>
       <li>

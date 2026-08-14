@@ -1,12 +1,17 @@
 import { ProjectCard } from "@/components/ProjectCard";
 import { SiteChrome } from "@/components/SiteChrome";
-import { projects } from "@/lib/content";
+import { projects, workIntro } from "@/lib/content";
 
-// Work page — two-column grid of project cards
+// Work page — intro + two-column grid of project cards
 export default function Home() {
   return (
     <SiteChrome tab="work">
-      <div className="grid w-full grid-cols-1 gap-8 px-6 py-4 md:grid-cols-2 md:gap-6 md:px-16 md:pt-2.5 md:pb-2">
+      <div className="w-full px-6 pt-6 md:px-16 md:pt-8">
+        <p className="w-full text-base tracking-wide text-zinc-500 md:text-lg">
+          {workIntro}
+        </p>
+      </div>
+      <div className="grid w-full grid-cols-1 gap-8 px-6 py-6 md:grid-cols-2 md:gap-6 md:px-16 md:pt-6 md:pb-2">
         {projects.map((project, i) => (
           <ProjectCard
             key={project.slug}

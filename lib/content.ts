@@ -12,8 +12,8 @@ export const site = {
   repo: "https://github.com/juliealexandras/jas-design-portfolio",
   changelogDate: "2026-08-12",
   tagline:
-    "Designing thoughtful, accessible, and scalable digital products.",
-  aboutTagline: "Insert tagline here",
+    "Product designer | Seattle, WA",
+  aboutTagline: "Product designer | Seattle, WA",
 };
 
 // Primary tabs: Work, About, Playground
@@ -24,6 +24,10 @@ export const nav = [
 ] as const;
 
 export type TabId = (typeof nav)[number]["id"];
+
+// Intro above the Work card grid
+export const workIntro =
+  "Selected product design work across mobile, web, and AI-powered experiences.";
 
 // Work page cards. `shape` picks the placeholder thumbnail style.
 export const projects = [

@@ -3,7 +3,7 @@ export function Monogram({ className = "" }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 44 44"
-      className={className}
+      className={` hidden ${className}`}
       aria-hidden="true"
       focusable="false"
     >

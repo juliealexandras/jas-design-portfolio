@@ -3,7 +3,7 @@ export const site = {
   firstName: "Julie",
   role: "Product designer",
   email: "juliealexandrastudio@gmail.com",
-  location: "Seattle / Washington",
+  location: "Seattle, WA",
   linkedin: "https://www.linkedin.com/in/juliealexandra",
   github: "https://github.com/juliealexandra",
   repo: "https://github.com/juliealexandras/jas-design-portfolio",
@@ -11,7 +11,7 @@ export const site = {
   tagline:
     "Designing thoughtful, accessible, and scalable digital products.",
   previously: ["Amazon"],
-  aboutTagline: "Product, design, andeverything in between.",
+  aboutTagline: "Insert tagline here",
 };
 
 export const nav = [
@@ -24,38 +24,38 @@ export type TabId = (typeof nav)[number]["id"];
 
 export const projects = [
   {
-    slug: "northwind",
-    title: "Northwind Health",
-    year: "2025",
-    caption: "Designing a calmer care dashboard for clinicians and patients.",
-    alt: "Abstract placeholder for Northwind Health case study",
+    slug: "project-1",
+    title: "Project 1",
+    year: "20XX",
+    caption: "Designing a project 1 for a project 1.",
+    alt: "Abstract placeholder for Project 1 case study",
     accent: "#d4d4d8",
     shape: "bars" as const,
   },
   {
-    slug: "atlas-maps",
-    title: "Atlas Maps",
-    year: "2024",
-    caption: "Reimagining wayfinding for first-time visitors in a new city.",
-    alt: "Abstract placeholder for Atlas Maps case study",
+    slug: "project-2",
+    title: "Project 2",
+    year: "20XX",
+    caption: "Designing a project 2 for a project 2.",
+    alt: "Abstract placeholder for Project 2 case study",
     accent: "#c4c4cc",
     shape: "rings" as const,
   },
   {
-    slug: "lumen",
-    title: "Lumen Studio",
-    year: "2024",
-    caption: "Product strategy to help creative teams ship with more clarity.",
-    alt: "Abstract placeholder for Lumen Studio case study",
+    slug: "project-3",
+    title: "Project 3",
+    year: "20XX",
+    caption: "Designing a project 3 for a project 3.",
+    alt: "Abstract placeholder for Project 3 case study",
     accent: "#d8d4cc",
     shape: "tiles" as const,
   },
   {
-    slug: "harbor",
-    title: "Harbor Bank",
-    year: "2023",
-    caption: "Making everyday banking feel human, clear, and trustworthy.",
-    alt: "Abstract placeholder for Harbor Bank case study",
+    slug: "project-4",
+    title: "Project 4",
+    year: "20XX",
+    caption: "Designing a project 4 for a project 4.",
+    alt: "Abstract placeholder for Project 4 case study",
     accent: "#ccd4d8",
     shape: "wave" as const,
   },
@@ -64,40 +64,39 @@ export const projects = [
 export const bio = {
   heading: `Hi, I'm ${site.firstName}!`,
   location: site.location,
-  education: site.education,
   paragraphs: [
-    "I love the overlap of art, systems, and technology — and how those pieces can come together as products people actually want to use. I obsess over tools that make creation and communication feel a little more human.",
-    "I design where beauty meets tactile utility: interfaces that are quiet until they need to speak, and details that earn their place. I am looking for teams that care about craft as much as outcomes.",
-    "Three words: curious, warm, precise.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   ],
 };
 
+export const showExperience = false;
+
 export const experience = [
   {
-    role: "Product Designer",
-    company: "Studio North",
+    role: "UX Designer II",
+    company: "Amazon",
     dates: "2024 — Present",
     bullets: [
-      "Led end-to-end product design for a clinician dashboard used across three hospital systems.",
-      "Partnered with research and engineering to ship a new onboarding flow that cut time-to-first-value.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     ],
   },
   {
-    role: "Product Design Intern",
-    company: "Lumen",
-    dates: "Summer 2023",
+    role: "UX Designer I",
+    company: "Amazon",
+    dates: "2023 — 2024",
     bullets: [
-      "Designed growth experiments and a campus acquisition narrative for a creative tools suite.",
-      "Built interactive prototypes and a component library for a six-person product squad.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     ],
   },
   {
-    role: "UX Design Intern",
-    company: "Atlas",
-    dates: "Summer 2022",
+    role: "UX Design Research Apprentice",
+    company: "Amazon",
+    dates: "2022 — 2023",
     bullets: [
-      "Mapped first-time visitor journeys and redesigned core wayfinding screens for web and mobile.",
-      "Ran unmoderated tests and turned findings into a prioritized opportunity map.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     ],
   },
 ];

@@ -7,7 +7,7 @@ export const site = {
   firstName: "Julie",
   role: "Product designer",
   email: "juliealexandrastudio@gmail.com",
-  linkedin: "https://www.linkedin.com/in/juliealexandra",
+  linkedin: "https://www.linkedin.com/in/juliespigner/",
   github: "https://github.com/juliealexandra",
   repo: "https://github.com/juliealexandras/jas-design-portfolio",
   changelogDate: "2026-08-12",

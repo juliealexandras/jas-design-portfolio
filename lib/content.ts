@@ -8,18 +8,20 @@ export const site = {
   role: "Product designer",
   email: "juliealexandrastudio@gmail.com",
   linkedin: "https://www.linkedin.com/in/juliespigner/",
-  github: "https://github.com/juliealexandra",
+  bluesky: "https://bsky.app/profile/juliealexandra.bsky.social",
+  github: "https://github.com/juliealexandras",
   repo: "https://github.com/juliealexandras/jas-design-portfolio",
   changelogDate: "2026-08-12",
   tagline:
-    "Product designer | Seattle, WA",
-  aboutTagline: "Product designer | Seattle, WA",
+    "Product Designer | Seattle, WA",
+  aboutTagline: "Product Designer | Seattle, WA",
 };
 
 // Primary tabs: Work, About, Playground
 export const nav = [
   { href: "/", label: "Work", id: "work" },
   { href: "/about", label: "About", id: "about" },
+  { href: "/notes", label: "Notes", id: "notes" },
   { href: "/playground", label: "Playground", id: "playground" },
 ] as const;
 
@@ -28,6 +30,9 @@ export type TabId = (typeof nav)[number]["id"];
 // Intro above the Work card grid
 export const workIntro =
   "Selected product design work across mobile, web, and AI-powered experiences.";
+
+// Intro above the Notes feed
+export const notesIntro = "Brief updates on what I'm making, reading, and noticing.";
 
 // Work page cards. `shape` picks the placeholder thumbnail style.
 export const projects = [
@@ -134,5 +139,31 @@ export const playground = [
     year: "2025",
     note: "Early product explorations still under wraps.",
     shape: "bars" as const,
+  },
+];
+
+// Notes feed. Body max 300 characters — keep copy at or under that limit.
+export const notes = [
+  {
+    date: "2026-08-14",
+    title: "Sketching a notes feed",
+    body: "Trying a quieter place for short updates — date, a title, a paragraph, and optional polaroids. Placeholder frames for now; real photos later.",
+    photos: [
+      { src: "/notes/one.svg", alt: "Placeholder polaroid of abstract bars" },
+      { src: "/notes/two.svg", alt: "Placeholder polaroid of abstract rings" },
+    ],
+  },
+  {
+    date: "2026-08-10",
+    title: "Studio afternoon",
+    body: "One photo from the desk. This note checks the single-polaroid layout so a lone frame still feels like a snapshot, not a full gallery.",
+    photos: [
+      { src: "/notes/three.svg", alt: "Placeholder polaroid of abstract tiles" },
+    ],
+  },
+  {
+    date: "2026-08-03",
+    title: "Text only",
+    body: "Some updates won't have photos. This one is just a date, a title, and a short paragraph so the feed still reads when the polaroid row is omitted.",
   },
 ];

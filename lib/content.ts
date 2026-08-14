@@ -1,19 +1,22 @@
+// All visitor-facing copy lives here. Pages and components read from these
+// objects — edit strings in this file instead of hunting through the UI.
+
+// Site identity — name, contact, taglines, and footer changelog
 export const site = {
   name: "Julie Spigner",
   firstName: "Julie",
   role: "Product designer",
   email: "juliealexandrastudio@gmail.com",
-  location: "Seattle, WA",
   linkedin: "https://www.linkedin.com/in/juliealexandra",
   github: "https://github.com/juliealexandra",
   repo: "https://github.com/juliealexandras/jas-design-portfolio",
   changelogDate: "2026-08-12",
   tagline:
     "Designing thoughtful, accessible, and scalable digital products.",
-  previously: ["Amazon"],
   aboutTagline: "Insert tagline here",
 };
 
+// Primary tabs: Work, About, Playground
 export const nav = [
   { href: "/", label: "Work", id: "work" },
   { href: "/about", label: "About", id: "about" },
@@ -22,6 +25,7 @@ export const nav = [
 
 export type TabId = (typeof nav)[number]["id"];
 
+// Work page cards. `shape` picks the placeholder thumbnail style.
 export const projects = [
   {
     slug: "project-1",
@@ -61,14 +65,20 @@ export const projects = [
   },
 ];
 
+// About page — heading and bio paragraphs (each item is one <p>)
 export const bio = {
-  heading: `Hi, I'm ${site.firstName}!`,
-  location: site.location,
+  heading: `👋 Hi, I'm ${site.firstName}!`,
   paragraphs: [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "I am a product designer who turns ambiguous, large-scale problems into systems that work for customers and for the teams who maintain them. Over four years, most recently at Amazon, I've designed end-to-end digital experiences across mobile, web, and multimodal devices, helping 70+ million customers engage with AI-powered services at home and on the go.",
+    "My niche sits at the intersection of systems thinking, cognitive science, and accessibility. As a native ASL user, I bring a first-hand lens on communication and inclusion to decisions. I build interaction patterns, scalable frameworks, and design libraries that save teams time, reduce barriers, and create flexible ways to interact with technology.",
+    "I partner closely with product, engineering, research, and business to balance customer needs with technical and business constraints. I care deeply about responsible AI and experiences that empower long-term trust, user customization, and genuine digital wellness. I bring that same care in design workflows.",
   ],
 };
 
+// Set to true to show the About portrait. Hidden until a real photo is ready.
+export const showPortrait = false;
+
+// Set to true to show the Experience list on About. Copy below is archived.
 export const showExperience = false;
 
 export const experience = [
@@ -101,6 +111,7 @@ export const experience = [
   },
 ];
 
+// Playground page — locked experiment cards (Coming soon)
 export const playground = [
   {
     title: "Motion studies",

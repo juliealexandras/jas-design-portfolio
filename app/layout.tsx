@@ -9,12 +9,13 @@ const instrumentSans = Instrument_Sans({
   display: "swap",
 });
 
+// Browser tab title and search description for every page
 export const metadata: Metadata = {
   title: {
     default: site.name,
     template: `%s | ${site.name}`,
   },
-  description: `${site.tagline} Previously at ${site.previously.join(", ")}.`,
+  description: site.tagline,
   authors: [{ name: site.name }],
 };
 

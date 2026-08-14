@@ -1,3 +1,4 @@
+// Header logo — "JA" mark that links home
 export function Monogram({ className = "" }: { className?: string }) {
   return (
     <svg

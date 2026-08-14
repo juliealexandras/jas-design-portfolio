@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description: `Experimental work by ${site.name} — not public yet.`,
 };
 
+// Experiments grid — cards are locked until work is public
 export default function PlaygroundPage() {
   return (
     <SiteChrome tab="playground">

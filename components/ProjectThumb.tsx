@@ -1,5 +1,6 @@
 type Shape = "bars" | "rings" | "tiles" | "wave";
 
+// Placeholder artwork for project cards until real images are added
 export function ProjectThumb({
   shape,
   accent,

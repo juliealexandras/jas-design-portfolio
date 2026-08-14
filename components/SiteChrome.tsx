@@ -3,6 +3,8 @@ import { Monogram } from "@/components/Monogram";
 import { SocialLinks } from "@/components/SocialLinks";
 import { nav, site, type TabId } from "@/lib/content";
 
+// Intro under the logo. About uses a shorter tagline; Work and Playground
+// share the main tagline.
 function Hero({ tab }: { tab: TabId }) {
   if (tab === "about") {
     return (
@@ -23,26 +25,13 @@ function Hero({ tab }: { tab: TabId }) {
         {site.name.toLowerCase()}
       </h1>
       <div className="mt-1 w-full text-base font-normal tracking-wide text-zinc-500 md:max-w-3xl md:text-lg">
-        <p>
-          {site.tagline}
-          <br aria-hidden="true" />
-          Previously at{" "}
-          {site.previously.map((name, i) => (
-            <span key={name}>
-              <span className="text-[#3f3f46]">{name}</span>
-              {i < site.previously.length - 2
-                ? ", "
-                : i === site.previously.length - 2
-                  ? ", & "
-                  : "."}
-            </span>
-          ))}
-        </p>
+        <p>{site.tagline}</p>
       </div>
     </div>
   );
 }
 
+// Work / About / Playground pill navigation
 function TabNav({ tab }: { tab: TabId }) {
   return (
     <nav
@@ -83,6 +72,7 @@ function TabNav({ tab }: { tab: TabId }) {
   );
 }
 
+// Shared shell: skip link, header, tabs, page content, footer
 export function SiteChrome({
   children,
   tab,
@@ -126,8 +116,10 @@ export function SiteChrome({
         <div className="flex flex-col items-start gap-4 pt-10 md:flex-row md:items-end md:justify-between">
           <SocialLinks compact />
         </div>
-        <p className="mt-8 text-sm text-zinc-500">Built with Next.js and Cursor.</p>
-        <p className="mt-1 text-sm text-zinc-500">
+        <p className="mt-8 text-sm text-zinc-500">
+          Designed by a human and engineered with Next.js + Cursor + Claude.
+        </p>
+        <p className="mt-1 text-xs uppercase tracking-wide text-zinc-500">
           <a
             href={site.repo}
             target="_blank"

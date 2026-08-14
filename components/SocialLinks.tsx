@@ -1,5 +1,6 @@
 import { site } from "@/lib/content";
 
+// Header and footer LinkedIn / GitHub icons
 function LinkedInIcon() {
   return (
     <svg
@@ -64,6 +65,7 @@ export function SocialLinks({ compact = false }: { compact?: boolean }) {
   );
 }
 
+// Used on locked Playground cards
 export function LockIcon({ className = "size-4" }: { className?: string }) {
   return (
     <svg

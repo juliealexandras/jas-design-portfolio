@@ -2,6 +2,7 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { SiteChrome } from "@/components/SiteChrome";
 import { projects } from "@/lib/content";
 
+// Work page — two-column grid of project cards
 export default function Home() {
   return (
     <SiteChrome tab="work">

@@ -12,6 +12,7 @@ type CardProps = {
   delayMs?: number;
 };
 
+// Used on Work and Playground. Locked cards show a "Coming soon" badge.
 export function ProjectCard({
   title,
   year,
@@ -39,6 +40,7 @@ export function ProjectCard({
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 rounded-[26px] border border-zinc-100"
       />
+      {/* Desktop: title + year overlay on the thumbnail */}
       <div className="absolute bottom-0 left-0 hidden p-3 md:block">
         <div className="flex items-center justify-center rounded-full border border-[#f4f4f5] bg-white px-3 pt-[5px] pb-[4.8px]">
           <p className="text-base font-medium leading-snug tracking-[0.005em] text-[#18181b]">
@@ -57,11 +59,13 @@ export function ProjectCard({
       aria-label={alt ?? `${title}, ${year}. ${caption}`}
     >
       {media}
+      {/* Desktop caption under the card */}
       <div className="hidden w-full items-start px-[13px] py-0 -mt-1.5 md:flex">
         <p className="text-left text-base font-normal leading-snug tracking-[0.005em] text-zinc-500">
           {caption}
         </p>
       </div>
+      {/* Mobile: title, year, and caption stacked below the thumbnail */}
       <div className="flex w-full flex-col items-start gap-1 px-[13px] py-0 text-base leading-snug tracking-[0.01em] md:hidden">
         <p className="text-left text-[#18181b]">
           <span>{title}</span>

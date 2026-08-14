@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { SiteChrome } from "@/components/SiteChrome";
-import { bio, experience, showExperience, site } from "@/lib/content";
+import { bio, experience, showExperience, showPortrait, site } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About",
@@ -11,43 +11,45 @@ export default function AboutPage() {
   return (
     <SiteChrome tab="about">
       <div className="flex w-full flex-col gap-16 px-6 pt-8 pb-4 md:px-16 md:pt-10">
+        {/* Portrait placeholder + bio. Portrait is off while showPortrait is false. */}
         <section
           aria-labelledby="about-heading"
-          className="grid grid-cols-1 items-start gap-8 md:grid-cols-2 md:gap-16"
+          className={`grid grid-cols-1 items-start gap-8 md:gap-16 ${
+            showPortrait ? "md:grid-cols-2" : ""
+          }`}
         >
-          <div
-            className="aspect-[4/5] w-full overflow-hidden rounded-[26px] bg-[#e4e4e7] md:max-w-md"
-            role="img"
-            aria-label={`Portrait placeholder for ${site.name}`}
-          >
-            <svg
-              viewBox="0 0 400 500"
-              className="size-full"
-              aria-hidden="true"
-              focusable="false"
+          {showPortrait ? (
+            <div
+              className="aspect-[4/5] w-full overflow-hidden rounded-[26px] bg-[#e4e4e7] md:max-w-md"
+              role="img"
+              aria-label={`Portrait placeholder for ${site.name}`}
             >
-              <rect width="400" height="500" fill="#e4e4e7" />
-              <circle cx="200" cy="190" r="72" fill="#fff" opacity="0.55" />
-              <ellipse
-                cx="200"
-                cy="390"
-                rx="130"
-                ry="110"
-                fill="#fff"
-                opacity="0.45"
-              />
-            </svg>
-          </div>
-          <div className="flex max-w-xl flex-col gap-4">
+              <svg
+                viewBox="0 0 400 500"
+                className="size-full"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <rect width="400" height="500" fill="#e4e4e7" />
+                <circle cx="200" cy="190" r="72" fill="#fff" opacity="0.55" />
+                <ellipse
+                  cx="200"
+                  cy="390"
+                  rx="130"
+                  ry="110"
+                  fill="#fff"
+                  opacity="0.45"
+                />
+              </svg>
+            </div>
+          ) : null}
+          <div className="flex w-full flex-col gap-4">
             <h2
               id="about-heading"
               className="text-3xl font-medium leading-normal text-zinc-700"
             >
               {bio.heading}
             </h2>
-            <p className="text-lg tracking-wide text-zinc-500">
-              {bio.location}
-            </p>
             {bio.paragraphs.map((paragraph) => (
               <p
                 key={paragraph}
@@ -56,19 +58,10 @@ export default function AboutPage() {
                 {paragraph}
               </p>
             ))}
-            <p className="pt-2 text-base tracking-wide text-zinc-500">
-              Working on something cool?{" "}
-              <a
-                href={`mailto:${site.email}`}
-                className="font-medium text-zinc-700 underline decoration-zinc-300 underline-offset-4 hover:text-zinc-900"
-              >
-                Get in touch
-              </a>
-              .
-            </p>
           </div>
         </section>
 
+        {/* Hidden while showExperience is false in lib/content.ts */}
         {showExperience ? (
           <section aria-labelledby="experience-heading" className="max-w-3xl">
             <h2

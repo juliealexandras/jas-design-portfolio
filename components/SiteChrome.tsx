@@ -10,7 +10,7 @@ function Hero({ tab }: { tab: TabId }) {
     return (
       <div className="flex w-full flex-col items-start px-6 pb-2 pt-20 md:h-[176px] md:px-16 md:pb-6 md:pt-14">
         <h1 className="w-full text-4xl font-medium leading-normal tracking-[0.0125em] text-[#3f3f46]">
-          {site.name.toLowerCase()}
+          {site.name}
         </h1>
         <p className="mt-1 w-full whitespace-pre-line text-base font-normal tracking-wide text-zinc-500 md:text-lg">
           {site.aboutTagline}
@@ -22,7 +22,7 @@ function Hero({ tab }: { tab: TabId }) {
   return (
     <div className="flex w-full flex-col items-start px-6 pb-2 pt-20 md:h-[176px] md:px-16 md:pb-6 md:pt-14">
       <h1 className="w-full text-4xl font-medium leading-normal tracking-[0.0125em] text-[#3f3f46]">
-        {site.name.toLowerCase()}
+        {site.name}
       </h1>
       <div className="mt-1 w-full text-base font-normal tracking-wide text-zinc-500 md:max-w-3xl md:text-lg">
         <p>{site.tagline}</p>
@@ -88,13 +88,13 @@ export function SiteChrome({
 
       <header className="relative w-full shrink-0">
         <div className="flex w-full items-start justify-between px-6 pt-8 pb-4 md:px-16 md:pb-8">
-          <Link
-            href="/"
-            className="group relative -m-2 inline-block shrink-0 rounded-xl p-2 transition-transform duration-200 ease-out hover:scale-[1.02] active:scale-95 motion-reduce:transition-none motion-reduce:hover:scale-100"
-            aria-label={`${site.name} — home`}
-          >
-            <Monogram className="block size-8 md:size-11" />
-          </Link>
+        <Link
+  href="/"
+  className="group relative -m-2 inline-block shrink-0 rounded-xl p-2 transition-transform duration-200 ease-out hover:scale-[1.02] active:scale-95 motion-reduce:transition-none motion-reduce:hover:scale-100"
+  aria-label={`${site.name} — home`}
+>
+  <Monogram className="block size-8 md:size-11" />
+</Link>
           <SocialLinks />
         </div>
         <Hero tab={tab} />

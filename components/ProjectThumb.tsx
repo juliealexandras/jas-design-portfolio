@@ -1,11 +1,11 @@
-type Shape = "bars" | "rings" | "tiles" | "wave";
+import type { ProjectShape } from "@/lib/content";
 
 // Placeholder artwork for project cards until real images are added
 export function ProjectThumb({
   shape,
   accent,
 }: {
-  shape: Shape;
+  shape: ProjectShape;
   accent: string;
 }) {
   return (

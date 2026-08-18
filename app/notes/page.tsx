@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { NotePost } from "@/components/NotePost";
 import { SiteChrome } from "@/components/SiteChrome";
-import { notes, notesIntro, site } from "@/lib/content";
+import { isTabVisible, notes, notesIntro, site } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Notes",
@@ -9,6 +10,8 @@ export const metadata: Metadata = {
 };
 
 export default function NotesPage() {
+  if (!isTabVisible("notes")) notFound();
+
   return (
     <SiteChrome tab="notes">
       <div className="w-full px-6 pt-6 md:px-16 md:pt-8">

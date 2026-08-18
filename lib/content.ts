@@ -17,70 +17,175 @@ export const site = {
   aboutTagline: "Product Designer | Seattle, WA",
 };
 
-// Primary tabs: Work, About, Playground
+// Primary tabs. hidden: true keeps the route file but omits the tab (and 404s the page).
 export const nav = [
-  { href: "/", label: "Work", id: "work" },
-  { href: "/about", label: "About", id: "about" },
-  { href: "/notes", label: "Notes", id: "notes" },
-  { href: "/playground", label: "Playground", id: "playground" },
+  { href: "/", label: "Work", id: "work", hidden: false },
+  { href: "/about", label: "About", id: "about", hidden: false },
+  { href: "/notes", label: "Notes", id: "notes", hidden: true },
+  { href: "/playground", label: "Playground", id: "playground", hidden: true },
 ] as const;
 
 export type TabId = (typeof nav)[number]["id"];
 
-// Intro above the Work card grid
+export function isTabVisible(id: TabId) {
+  return !nav.find((item) => item.id === id)?.hidden;
+}
+
+// Intro above the Work list
 export const workIntro =
   "Selected product design work across mobile, web, and AI-powered experiences.";
 
 // Intro above the Notes feed
 export const notesIntro = "Brief updates on what I'm making, reading, and noticing.";
 
-// Work page cards. `shape` picks the placeholder thumbnail style.
-export const projects = [
+export type ProjectShape = "bars" | "rings" | "tiles" | "wave";
+
+export type ProjectGalleryImage = {
+  alt: string;
+  src?: string;
+  shape?: ProjectShape;
+  accent?: string;
+};
+
+export type Project = {
+  slug: string;
+  title: string;
+  date: string;
+  year: string;
+  caption: string;
+  alt: string;
+  accent: string;
+  shape: ProjectShape;
+  role: string;
+  tools: string;
+  org: string;
+  timeline: string;
+  platforms: string;
+  overview: string[];
+  overviewLinks?: { label: string; href: string }[];
+  titleHref?: string;
+  gallery: ProjectGalleryImage[];
+  cover?: { src: string; alt: string };
+};
+
+// Work list overview is clipped to this length.
+export const WORK_OVERVIEW_MAX = 300;
+
+// Work page cards and project pages. `shape` picks the placeholder thumbnail style.
+// Replace gallery `src` with a file in /public when a real image is ready.
+export const projects: Project[] = [
   {
     slug: "project-1",
-    title: "Project 1",
-    year: "20XX",
-    caption: "Designing a project 1 for a project 1.",
-    alt: "Abstract placeholder for Project 1 case study",
+    title: "Alexa+",
+    date: "2026-02-01",
+    year: "2026",
+    caption: "Designing a unified opt-in experience for the next generation of Alexa.",
+    alt: "Alexa+ across Echo displays, laptop, phone, and other Alexa-enabled devices",
     accent: "#d4d4d8",
-    shape: "bars" as const,
+    shape: "bars",
+    titleHref: "https://www.amazon.com/AlexaPlus",
+    cover: {
+      src: "/work/alexa-plus-devices.jpg",
+      alt: "Alexa+ across Echo displays, laptop, phone, and other Alexa-enabled devices",
+    },
+    role: "Product designer",
+    tools: "Figma",
+    org: "Amazon",
+    timeline: "2025 — 2026",
+    platforms: "Mobile, web, multimodal",
+    overview: [
+      "Designed Alexa+’s unified opt-in experience across mobile, web, and multimodal devices. I navigated evolving product architecture, multiple user cohorts, phased launches, and new regulatory requirements to create a seamless path to Alexa+ for millions.",
+    ],
+    overviewLinks: [
+      { label: "Alexa+", href: "https://www.aboutamazon.com/news/devices/alexa-plus-available-free-prime-members-us" },
+    ],
+    gallery: [
+      { alt: "Placeholder frame for Alexa+ overview", shape: "bars", accent: "#d4d4d8" },
+      { alt: "Placeholder frame for Alexa+ detail", shape: "tiles", accent: "#c4c4cc" },
+      { alt: "Placeholder frame for Alexa+ close-up", shape: "wave", accent: "#d8d4cc" },
+    ],
   },
   {
     slug: "project-2",
     title: "Project 2",
-    year: "20XX",
+    date: "2025-09-01",
+    year: "2025",
     caption: "Designing a project 2 for a project 2.",
     alt: "Abstract placeholder for Project 2 case study",
     accent: "#c4c4cc",
-    shape: "rings" as const,
+    shape: "rings",
+    role: "Product designer",
+    tools: "Figma",
+    org: "Organization",
+    timeline: "20XX — 20XX",
+    platforms: "Mobile, web",
+    overview: [
+      "A short overview of this project — the problem, the people it was for, and the outcome. Replace this copy when the case study is ready to share.",
+    ],
+    gallery: [
+      { alt: "Placeholder frame for Project 2 overview", shape: "rings", accent: "#c4c4cc" },
+      { alt: "Placeholder frame for Project 2 detail", shape: "bars", accent: "#d4d4d8" },
+      { alt: "Placeholder frame for Project 2 close-up", shape: "tiles", accent: "#d8d4cc" },
+    ],
   },
   {
     slug: "project-3",
     title: "Project 3",
-    year: "20XX",
+    date: "2024-11-01",
+    year: "2024",
     caption: "Designing a project 3 for a project 3.",
     alt: "Abstract placeholder for Project 3 case study",
     accent: "#d8d4cc",
-    shape: "tiles" as const,
+    shape: "tiles",
+    role: "Product designer",
+    tools: "Figma",
+    org: "Organization",
+    timeline: "20XX — 20XX",
+    platforms: "Mobile, web",
+    overview: [
+      "A short overview of this project — the problem, the people it was for, and the outcome. Replace this copy when the case study is ready to share.",
+    ],
+    gallery: [
+      { alt: "Placeholder frame for Project 3 overview", shape: "tiles", accent: "#d8d4cc" },
+      { alt: "Placeholder frame for Project 3 detail", shape: "wave", accent: "#ccd4d8" },
+      { alt: "Placeholder frame for Project 3 close-up", shape: "rings", accent: "#c4c4cc" },
+    ],
   },
   {
     slug: "project-4",
     title: "Project 4",
-    year: "20XX",
+    date: "2023-04-01",
+    year: "2023",
     caption: "Designing a project 4 for a project 4.",
     alt: "Abstract placeholder for Project 4 case study",
     accent: "#ccd4d8",
-    shape: "wave" as const,
+    shape: "wave",
+    role: "Product designer",
+    tools: "Figma",
+    org: "Organization",
+    timeline: "20XX — 20XX",
+    platforms: "Mobile, web",
+    overview: [
+      "A short overview of this project — the problem, the people it was for, and the outcome. Replace this copy when the case study is ready to share.",
+    ],
+    gallery: [
+      { alt: "Placeholder frame for Project 4 overview", shape: "wave", accent: "#ccd4d8" },
+      { alt: "Placeholder frame for Project 4 detail", shape: "rings", accent: "#c4c4cc" },
+      { alt: "Placeholder frame for Project 4 close-up", shape: "bars", accent: "#d4d4d8" },
+    ],
   },
 ];
 
+export function getWorkProjects() {
+  return [...projects].sort((a, b) => b.date.localeCompare(a.date));
+}
+
 // About page — heading and bio paragraphs (each item is one <p>)
 export const bio = {
-  heading: `👋 Hi, I'm ${site.firstName}!`,
   paragraphs: [
-    "I am a product designer who turns ambiguous, large-scale problems into systems that work for customers and for the teams who maintain them. Over four years, most recently at Amazon, I've designed end-to-end digital experiences across mobile, web, and multimodal devices, helping 70+ million customers engage with AI-powered services at home and on the go.",
-    "My niche sits at the intersection of systems thinking, cognitive science, and accessibility. As a native ASL user, I bring a first-hand lens on communication and inclusion to decisions. I build interaction patterns, scalable frameworks, and design libraries that save teams time, reduce barriers, and create flexible ways to interact with technology.",
-    "I partner closely with product, engineering, research, and business to balance customer needs with technical and business constraints. I care deeply about responsible AI and experiences that empower long-term trust, user customization, and genuine digital wellness. I bring that same care in design workflows.",
+    "I’m a designer who enjoys making sense of messy, ambiguous problems and turning them into experiences that feel clear, useful, and human. Over the past four years, most recently at Amazon, I’ve designed end-to-end experiences across mobile, web, and multimodal devices, helping shape products used by more than 70 million customers.",
+    "My work is grounded in systems thinking, cognitive science, and accessibility. As a native ASL user, I bring a firsthand perspective on communication and inclusion that influences how I design products and systems. I enjoy collaborating with product, engineering, research, and business teams to simplify complexity and create meaningful experiences. ",
+    "Outside of design, I’m an advocate for community arts and sign language rights. I enjoy connecting with people through creative projects and community events.",
   ],
 };
 

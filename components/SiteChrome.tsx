@@ -31,7 +31,7 @@ function Hero({ tab }: { tab: TabId }) {
   );
 }
 
-// Work / About / Notes / Playground pill navigation
+// Primary pill navigation (hidden tabs are omitted)
 function TabNav({ tab }: { tab: TabId }) {
   return (
     <nav
@@ -39,7 +39,7 @@ function TabNav({ tab }: { tab: TabId }) {
       aria-label="Primary"
     >
       <ul className="flex items-start gap-1">
-        {nav.map((item) => {
+        {nav.filter((item) => !item.hidden).map((item) => {
           const active = item.id === tab;
           return (
             <li key={item.id}>

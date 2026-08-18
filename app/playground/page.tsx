@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SiteChrome } from "@/components/SiteChrome";
-import { playground, site } from "@/lib/content";
+import { isTabVisible, playground, site } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Playground",
@@ -10,6 +11,8 @@ export const metadata: Metadata = {
 
 // Experiments grid — cards are locked until work is public
 export default function PlaygroundPage() {
+  if (!isTabVisible("playground")) notFound();
+
   return (
     <SiteChrome tab="playground">
       <div className="w-full px-6 pt-6 md:px-16 md:pt-8">

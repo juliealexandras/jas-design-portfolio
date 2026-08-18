@@ -1,9 +1,11 @@
-import { ProjectCard } from "@/components/ProjectCard";
+import { WorkEntry } from "@/components/WorkEntry";
 import { SiteChrome } from "@/components/SiteChrome";
-import { projects, workIntro } from "@/lib/content";
+import { getWorkProjects, workIntro } from "@/lib/content";
 
-// Work page — intro + two-column grid of project cards
+// Work page — one-column list, newest first
 export default function Home() {
+  const projects = getWorkProjects();
+
   return (
     <SiteChrome tab="work">
       <div className="w-full px-6 pt-6 md:px-16 md:pt-8">
@@ -11,18 +13,14 @@ export default function Home() {
           {workIntro}
         </p>
       </div>
-      <div className="grid w-full grid-cols-1 gap-8 px-6 py-6 md:grid-cols-2 md:gap-6 md:px-16 md:pt-6 md:pb-2">
+      <div className="flex w-full flex-col px-6 py-6 md:px-16 md:pt-8 md:pb-2">
         {projects.map((project, i) => (
-          <ProjectCard
+          <div
             key={project.slug}
-            title={project.title}
-            year={project.year}
-            caption={project.caption}
-            alt={project.alt}
-            accent={project.accent}
-            shape={project.shape}
-            delayMs={i * 60}
-          />
+            className={i === 0 ? "pb-12 md:pb-16" : "border-t border-zinc-100 py-12 md:py-16"}
+          >
+            <WorkEntry project={project} delayMs={i * 60} />
+          </div>
         ))}
       </div>
     </SiteChrome>

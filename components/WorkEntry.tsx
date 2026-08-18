@@ -12,6 +12,10 @@ function formatWorkDate(iso: string) {
   }).format(new Date(Date.UTC(year, month - 1, day || 1)));
 }
 
+function clipOverview(overview: string[]) {
+  return overview.join(" ").slice(0, WORK_OVERVIEW_MAX);
+}
+
 function OverviewText({
   text,
   links,
@@ -98,7 +102,19 @@ export function WorkEntry({
         {formatWorkDate(project.date)}
       </time>
       <h2 className="text-xl font-medium tracking-[0.005em] text-[#3f3f46] md:text-2xl">
-        {project.title}
+        {project.titleHref ? (
+          <a
+            href={project.titleHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-zinc-300 underline-offset-4 transition-colors hover:text-zinc-700"
+          >
+            {project.title}
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
+        ) : (
+          project.title
+        )}
       </h2>
       <p className="max-w-2xl text-base leading-relaxed tracking-wide text-zinc-500 md:text-lg">
         <OverviewText
@@ -108,7 +124,7 @@ export function WorkEntry({
       </p>
       <figure className="flex w-full max-w-3xl flex-col gap-3 pt-1">
         <WorkCover project={project} />
-        <figcaption className="px-[13px] text-left text-base font-normal leading-snug tracking-[0.005em] text-zinc-500">
+        <figcaption className="text-center text-sm font-bold leading-snug tracking-[0.005em] text-zinc-500">
           {project.caption}
         </figcaption>
       </figure>

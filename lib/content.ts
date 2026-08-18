@@ -63,6 +63,7 @@ export type Project = {
   platforms: string;
   overview: string[];
   overviewLinks?: { label: string; href: string }[];
+  titleHref?: string;
   gallery: ProjectGalleryImage[];
   cover?: { src: string; alt: string };
 };
@@ -76,15 +77,16 @@ export const projects: Project[] = [
   {
     slug: "project-1",
     title: "Alexa+",
-    date: "2026-06-01",
+    date: "2026-02-01",
     year: "2026",
     caption: "Designing a unified opt-in experience for the next generation of Alexa.",
-    alt: "Alexa+ logo on a dark blue glow",
+    alt: "Alexa+ across Echo displays, laptop, phone, and other Alexa-enabled devices",
     accent: "#d4d4d8",
     shape: "bars",
+    titleHref: "https://www.amazon.com/AlexaPlus",
     cover: {
-      src: "/work/alexa-plus-cover.jpg",
-      alt: "Alexa+ logo on a dark blue glow",
+      src: "/work/alexa-plus-devices.jpg",
+      alt: "Alexa+ across Echo displays, laptop, phone, and other Alexa-enabled devices",
     },
     role: "Product designer",
     tools: "Figma",
@@ -95,7 +97,7 @@ export const projects: Project[] = [
       "Designed Alexa+’s unified opt-in experience across mobile, web, and multimodal devices. I navigated evolving product architecture, multiple user cohorts, phased launches, and new regulatory requirements to create a seamless path to Alexa+ for millions.",
     ],
     overviewLinks: [
-      { label: "Alexa+", href: "https://www.amazon.com/AlexaPlus" },
+      { label: "Alexa+", href: "https://www.aboutamazon.com/news/devices/alexa-plus-available-free-prime-members-us" },
     ],
     gallery: [
       { alt: "Placeholder frame for Alexa+ overview", shape: "bars", accent: "#d4d4d8" },

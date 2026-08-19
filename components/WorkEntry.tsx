@@ -1,6 +1,8 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { ProjectThumb } from "@/components/ProjectThumb";
+import { WorkAnimatedCover } from "@/components/WorkAnimatedCover";
+import { WorkDeck } from "@/components/WorkDeck";
 import { WORK_OVERVIEW_MAX, type Project } from "@/lib/content";
 
 function formatWorkDate(iso: string) {
@@ -51,14 +53,34 @@ function OverviewText({
   return nodes;
 }
 
+function coverKind(src?: string) {
+  if (!src) return "none";
+  const lower = src.toLowerCase();
+  if (lower.endsWith(".gif")) return "gif";
+  if (/\.(mp4|webm|mov)$/.test(lower)) return "video";
+  return "image";
+}
+
 function WorkCover({ project }: { project: Project }) {
+  if (project.deck && project.deck.length > 0) {
+    return <WorkDeck slides={project.deck} label={project.title} />;
+  }
+
+  const src = project.cover?.src;
+  const alt = project.cover?.alt ?? project.alt;
+  const kind = coverKind(src);
+
   return (
     <div className="relative w-full overflow-clip rounded-[26px]">
-      <div className="relative isolate aspect-[678/367.625] w-full overflow-hidden rounded-[26px] bg-[#e4e4e7]">
-        {project.cover?.src ? (
+      <div className="relative isolate aspect-video w-full overflow-hidden rounded-[26px] bg-[#e4e4e7]">
+        {kind === "video" && src ? (
+          <WorkAnimatedCover src={src} alt={alt} kind="video" />
+        ) : kind === "gif" && src ? (
+          <WorkAnimatedCover src={src} alt={alt} kind="gif" />
+        ) : kind === "image" && src ? (
           <Image
-            src={project.cover.src}
-            alt={project.cover.alt}
+            src={src}
+            alt={alt}
             fill
             sizes="(min-width: 768px) 48rem, 100vw"
             quality={100}

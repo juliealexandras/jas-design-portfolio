@@ -11,7 +11,7 @@ export const site = {
   bluesky: "https://bsky.app/profile/juliealexandra.bsky.social",
   github: "https://github.com/juliealexandras",
   repo: "https://github.com/juliealexandras/jas-design-portfolio",
-  changelogDate: "2026-08-12",
+  changelogDate: "2026-08-19",
   tagline:
     "Product Designer | Seattle, WA",
   aboutTagline: "Product Designer | Seattle, WA",
@@ -40,13 +40,6 @@ export const notesIntro = "Brief updates on what I'm making, reading, and notici
 
 export type ProjectShape = "bars" | "rings" | "tiles" | "wave";
 
-export type ProjectGalleryImage = {
-  alt: string;
-  src?: string;
-  shape?: ProjectShape;
-  accent?: string;
-};
-
 export type Project = {
   slug: string;
   title: string;
@@ -56,24 +49,18 @@ export type Project = {
   alt: string;
   accent: string;
   shape: ProjectShape;
-  role: string;
-  tools: string;
-  org: string;
-  timeline: string;
-  platforms: string;
   overview: string[];
   overviewLinks?: { label: string; href: string }[];
   titleHref?: string;
-  gallery: ProjectGalleryImage[];
   cover?: { src: string; alt: string };
   deck?: { src: string; alt: string }[];
+  hidden?: boolean;
 };
 
 // Work list overview is clipped to this length.
 export const WORK_OVERVIEW_MAX = 300;
 
-// Work page cards and project pages. `shape` picks the placeholder thumbnail style.
-// Replace gallery `src` with a file in /public when a real image is ready.
+// Work page cards. `shape` picks the placeholder thumbnail until a cover or deck is set.
 export const projects: Project[] = [
   {
     slug: "work-alexa-plus",
@@ -84,27 +71,16 @@ export const projects: Project[] = [
     alt: "Alexa+ home dashboard on an Echo Show display",
     accent: "#d4d4d8",
     shape: "bars",
-    titleHref: "",
     cover: {
       src: "/work/alexa-plus-prototype.gif",
       alt: "Alexa+ home dashboard on an Echo Show display",
     },
-    role: "Product designer",
-    tools: "Figma",
-    org: "Amazon",
-    timeline: "2025 — 2026",
-    platforms: "Mobile, web, multimodal",
     overview: [
       "Designed Alexa+’s unified opt-in experience across mobile, web, and multimodal devices. I navigated evolving product architecture, multiple user cohorts, phased launches, regulatory requirements, and an emerging brand identity to create a seamless path to Alexa+ for millions.",
     ],
     overviewLinks: [
       { label: "Alexa+", href: "https://www.amazon.com/AlexaPlus"},
       { label: "Alexa+", href: "https://www.aboutamazon.com/news/devices/alexa-plus-available-free-prime-members-us" },
-    ],
-    gallery: [
-      { alt: "Placeholder frame for Alexa+ overview", shape: "bars", accent: "#d4d4d8" },
-      { alt: "Placeholder frame for Alexa+ detail", shape: "tiles", accent: "#c4c4cc" },
-      { alt: "Placeholder frame for Alexa+ close-up", shape: "wave", accent: "#d8d4cc" },
     ],
   },
   {
@@ -116,27 +92,16 @@ export const projects: Project[] = [
     alt: "Abstract placeholder for Project 2 case study",
     accent: "#c4c4cc",
     shape: "rings",
-    titleHref: "",
     cover: {
       src: "/work/alexa_plus_store_apps.mp4",
       alt: "Alexa+ Store interface displaying a grid of apps, skills, and add-on experiences available to Alexa+ members.",
     },
-    role: "Product designer",
-    tools: "Figma",
-    org: "Organization",
-    timeline: "20XX — 20XX",
-    platforms: "Mobile, web",
     overview: [
       "Built the Alexa+ Store experience, evolving Alexa Skills into a modern marketplace for add-ons, integrations, and AI-powered capabilities. I designed discovery, onboarding, and purchase flows across multimodal surfaces in parallel with mobile to make exploration feel seamless and familiar.",
     ],
     overviewLinks: [
       { label: "Alexa+ Store", href: "https://www.amazon.com/AlexaPlusStore" },
       { label: "Alexa Skills", href: "https://www.amazon.com/alexa-skills/b?ie=UTF8&node=13727921011" },
-    ],
-    gallery: [
-      { alt: "Placeholder frame for Project 2 overview", shape: "rings", accent: "#c4c4cc" },
-      { alt: "Placeholder frame for Project 2 detail", shape: "bars", accent: "#d4d4d8" },
-      { alt: "Placeholder frame for Project 2 close-up", shape: "tiles", accent: "#d8d4cc" },
     ],
   },
   {
@@ -156,18 +121,8 @@ export const projects: Project[] = [
       { src: "/work/library-subs-ux-deck/6_sample.png", alt: "Subscriptions Playbook Library sample 6" },
       { src: "/work/library-subs-ux-deck/7_sample.png", alt: "Subscriptions Playbook Library sample 7" },
     ],
-    role: "Product designer",
-    tools: "Figma",
-    org: "Organization",
-    timeline: "20XX — 20XX",
-    platforms: "Mobile, web",
     overview: [
       "Designed a subscription UX reference library that became the shared source of truth for Amazon brands in Alexa’s ecosystem. Unified purchasing patterns, decision logic, and templates across platforms to help teams ship consistent subscription experiences at scale across US and international markets.",
-    ],
-    gallery: [
-      { alt: "Placeholder frame for Project 3 overview", shape: "tiles", accent: "#d8d4cc" },
-      { alt: "Placeholder frame for Project 3 detail", shape: "wave", accent: "#ccd4d8" },
-      { alt: "Placeholder frame for Project 3 close-up", shape: "rings", accent: "#c4c4cc" },
     ],
   },
   {
@@ -179,24 +134,17 @@ export const projects: Project[] = [
     alt: "Abstract placeholder for Work Sample project",
     accent: "#ccd4d8",
     shape: "wave",
-    role: "Product designer",
-    tools: "Figma",
-    org: "Organization",
-    timeline: "20XX — 20XX",
-    platforms: "Mobile, web",
+    hidden: true,
     overview: [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    ],
-    gallery: [
-      { alt: "Placeholder frame for Project 4 overview", shape: "wave", accent: "#ccd4d8" },
-      { alt: "Placeholder frame for Project 4 detail", shape: "rings", accent: "#c4c4cc" },
-      { alt: "Placeholder frame for Project 4 close-up", shape: "bars", accent: "#d4d4d8" },
     ],
   },
 ];
 
 export function getWorkProjects() {
-  return [...projects].sort((a, b) => b.date.localeCompare(a.date));
+  return [...projects]
+    .filter((project) => !project.hidden)
+    .sort((a, b) => b.date.localeCompare(a.date));
 }
 
 // About page — heading and bio paragraphs (each item is one <p>)

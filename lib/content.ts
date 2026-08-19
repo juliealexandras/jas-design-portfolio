@@ -89,7 +89,7 @@ export const projects: Project[] = [
     date: "2025-07-01",
     year: "2025",
     caption: "App grid showcasing add-ons and experiences available to Alexa+ members.",
-    alt: "Abstract placeholder for Project 2 case study",
+    alt: "Alexa+ Store interface displaying a grid of apps, skills, and add-on experiences available to Alexa+ members.",
     accent: "#c4c4cc",
     shape: "rings",
     cover: {
@@ -100,7 +100,7 @@ export const projects: Project[] = [
       "Built the Alexa+ Store experience, evolving Alexa Skills into a modern marketplace for add-ons, integrations, and AI-powered capabilities. I designed discovery, onboarding, and purchase flows across multimodal surfaces in parallel with mobile to make exploration feel seamless and familiar.",
     ],
     overviewLinks: [
-      { label: "Alexa+ Store", href: "https://www.amazon.com/AlexaPlusStore" },
+      { label: "Alexa+ Store", href: "https://www.aboutamazon.com/news/devices/amazon-new-echo-devices-alexa-plus" },
       { label: "Alexa Skills", href: "https://www.amazon.com/alexa-skills/b?ie=UTF8&node=13727921011" },
     ],
   },

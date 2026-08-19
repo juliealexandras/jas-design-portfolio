@@ -125,6 +125,28 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "work-alexa-emergency-assist",
+    title: "Alexa Emergency Assist",
+    date: "2023-09-01",
+    year: "2023",
+    caption: "Critical Information setup in the Alexa app.",
+    alt: "Alexa Emergency Assist mobile experience",
+    accent: "#ccd4d8",
+    shape: "wave",
+    cover: {
+      src: "/work/aea-mobile.png",
+      alt: "Alexa Emergency Assist mobile experience",
+    },
+    overview: [
+      "Alexa Emergency Assist is the evolution of Alexa Guard and Alexa Together. I shaped the user journey from purchase through onboarding for older adults and caregivers, balancing complex subscription paths, promotions, emergency requirements, and an evolving brand across Amazon and Alexa app.",
+    ],
+    overviewLinks: [
+      { label: "Alexa Emergency Assist", href: "https://www.amazon.com/gethelpfast" },
+      { label: "Alexa Guard", href: "https://www.amazon.com/b?ie=UTF8&node=18021383011"},
+      { label: "Alexa Together", href: "https://www.aboutamazon.com/news/devices/alexa-together-launches-to-help-customers-remotely-care-for-loved-ones"},
+    ],
+  },
+  {
     slug: "work-sample",
     title: "Title",
     date: "2023-04-01",

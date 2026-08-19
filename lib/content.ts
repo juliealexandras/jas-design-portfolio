@@ -66,6 +66,7 @@ export type Project = {
   titleHref?: string;
   gallery: ProjectGalleryImage[];
   cover?: { src: string; alt: string };
+  deck?: { src: string; alt: string }[];
 };
 
 // Work list overview is clipped to this length.
@@ -75,18 +76,18 @@ export const WORK_OVERVIEW_MAX = 300;
 // Replace gallery `src` with a file in /public when a real image is ready.
 export const projects: Project[] = [
   {
-    slug: "project-1",
+    slug: "work-alexa-plus",
     title: "Alexa+",
     date: "2026-02-01",
     year: "2026",
-    caption: "Designing a unified opt-in experience for the next generation of Alexa.",
-    alt: "Alexa+ across Echo displays, laptop, phone, and other Alexa-enabled devices",
+    caption: "Alexa+ on an Echo Show device.",
+    alt: "Alexa+ home dashboard on an Echo Show display",
     accent: "#d4d4d8",
     shape: "bars",
-    titleHref: "https://www.amazon.com/AlexaPlus",
+    titleHref: "",
     cover: {
-      src: "/work/alexa-plus-devices.jpg",
-      alt: "Alexa+ across Echo displays, laptop, phone, and other Alexa-enabled devices",
+      src: "/work/alexa-plus-prototype.gif",
+      alt: "Alexa+ home dashboard on an Echo Show display",
     },
     role: "Product designer",
     tools: "Figma",
@@ -94,9 +95,10 @@ export const projects: Project[] = [
     timeline: "2025 — 2026",
     platforms: "Mobile, web, multimodal",
     overview: [
-      "Designed Alexa+’s unified opt-in experience across mobile, web, and multimodal devices. I navigated evolving product architecture, multiple user cohorts, phased launches, and new regulatory requirements to create a seamless path to Alexa+ for millions.",
+      "Designed Alexa+’s unified opt-in experience across mobile, web, and multimodal devices. I navigated evolving product architecture, multiple user cohorts, phased launches, regulatory requirements, and an emerging brand identity to create a seamless path to Alexa+ for millions.",
     ],
     overviewLinks: [
+      { label: "Alexa+", href: "https://www.amazon.com/AlexaPlus"},
       { label: "Alexa+", href: "https://www.aboutamazon.com/news/devices/alexa-plus-available-free-prime-members-us" },
     ],
     gallery: [
@@ -106,21 +108,30 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "project-2",
-    title: "Project 2",
-    date: "2025-09-01",
+    slug: "work-alexa-plus-store",
+    title: "Alexa+ Store",
+    date: "2025-07-01",
     year: "2025",
-    caption: "Designing a project 2 for a project 2.",
+    caption: "App grid showcasing add-ons and experiences available to Alexa+ members.",
     alt: "Abstract placeholder for Project 2 case study",
     accent: "#c4c4cc",
     shape: "rings",
+    titleHref: "",
+    cover: {
+      src: "/work/alexa_plus_store_apps.mp4",
+      alt: "Alexa+ Store interface displaying a grid of apps, skills, and add-on experiences available to Alexa+ members.",
+    },
     role: "Product designer",
     tools: "Figma",
     org: "Organization",
     timeline: "20XX — 20XX",
     platforms: "Mobile, web",
     overview: [
-      "A short overview of this project — the problem, the people it was for, and the outcome. Replace this copy when the case study is ready to share.",
+      "Built the Alexa+ Store experience, evolving Alexa Skills into a modern marketplace for add-ons, integrations, and AI-powered capabilities. I designed discovery, onboarding, and purchase flows across multimodal surfaces in parallel with mobile to make exploration feel seamless and familiar.",
+    ],
+    overviewLinks: [
+      { label: "Alexa+ Store", href: "https://www.amazon.com/AlexaPlusStore" },
+      { label: "Alexa Skills", href: "https://www.amazon.com/alexa-skills/b?ie=UTF8&node=13727921011" },
     ],
     gallery: [
       { alt: "Placeholder frame for Project 2 overview", shape: "rings", accent: "#c4c4cc" },
@@ -129,21 +140,29 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "project-3",
-    title: "Project 3",
+    slug: "work-subscriptions-playbook-library",
+    title: "Subscriptions Playbook Library",
     date: "2024-11-01",
     year: "2024",
-    caption: "Designing a project 3 for a project 3.",
-    alt: "Abstract placeholder for Project 3 case study",
+    caption: "Sample pages with redacted content for Amazon and third party brands.",
+    alt: "Subscriptions Playbook Library interface",
     accent: "#d8d4cc",
     shape: "tiles",
+    deck: [
+      { src: "/work/library-subs-ux-deck/2_getting_started.png", alt: "Subscriptions Playbook Library getting started" },
+      { src: "/work/library-subs-ux-deck/3_sample.png", alt: "Subscriptions Playbook Library sample 3" },
+      { src: "/work/library-subs-ux-deck/4_sample.png", alt: "Subscriptions Playbook Library sample 4" },
+      { src: "/work/library-subs-ux-deck/5_sample.png", alt: "Subscriptions Playbook Library sample 5" },
+      { src: "/work/library-subs-ux-deck/6_sample.png", alt: "Subscriptions Playbook Library sample 6" },
+      { src: "/work/library-subs-ux-deck/7_sample.png", alt: "Subscriptions Playbook Library sample 7" },
+    ],
     role: "Product designer",
     tools: "Figma",
     org: "Organization",
     timeline: "20XX — 20XX",
     platforms: "Mobile, web",
     overview: [
-      "A short overview of this project — the problem, the people it was for, and the outcome. Replace this copy when the case study is ready to share.",
+      "Designed a subscription UX reference library that became the shared source of truth for Amazon brands in Alexa’s ecosystem. Unified purchasing patterns, decision logic, and templates across platforms to help teams ship consistent subscription experiences at scale across US and international markets.",
     ],
     gallery: [
       { alt: "Placeholder frame for Project 3 overview", shape: "tiles", accent: "#d8d4cc" },
@@ -152,12 +171,12 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "project-4",
-    title: "Project 4",
+    slug: "work-sample",
+    title: "Title",
     date: "2023-04-01",
     year: "2023",
-    caption: "Designing a project 4 for a project 4.",
-    alt: "Abstract placeholder for Project 4 case study",
+    caption: "Caption.",
+    alt: "Abstract placeholder for Work Sample project",
     accent: "#ccd4d8",
     shape: "wave",
     role: "Product designer",
@@ -166,7 +185,7 @@ export const projects: Project[] = [
     timeline: "20XX — 20XX",
     platforms: "Mobile, web",
     overview: [
-      "A short overview of this project — the problem, the people it was for, and the outcome. Replace this copy when the case study is ready to share.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     ],
     gallery: [
       { alt: "Placeholder frame for Project 4 overview", shape: "wave", accent: "#ccd4d8" },
@@ -187,6 +206,12 @@ export const bio = {
     "My work is grounded in systems thinking, cognitive science, and accessibility. As a native ASL user, I bring a firsthand perspective on communication and inclusion that influences how I design products and systems. I enjoy collaborating with product, engineering, research, and business teams to simplify complexity and create meaningful experiences. ",
     "Outside of design, I’m an advocate for community arts and sign language rights. I enjoy connecting with people through creative projects and community events.",
   ],
+};
+
+export const aboutCta = {
+  before: "Want to talk about a role, a project, or a collaboration? ",
+  link: "Connect with me",
+  after: ".",
 };
 
 // Set to true to show the About portrait. Hidden until a real photo is ready.

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { SiteChrome } from "@/components/SiteChrome";
-import { bio, experience, showExperience, showPortrait, site } from "@/lib/content";
+import { aboutCta, bio, experience, showExperience, showPortrait, site } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About",
@@ -13,7 +13,7 @@ export default function AboutPage() {
       <div className="flex w-full flex-col gap-16 px-6 pt-8 pb-4 md:px-16 md:pt-10">
         {/* Portrait placeholder + bio. Portrait is off while showPortrait is false. */}
         <section
-          aria-labelledby="about-heading"
+          aria-label="About"
           className={`grid grid-cols-1 items-start gap-8 md:gap-16 ${
             showPortrait ? "md:grid-cols-2" : ""
           }`}
@@ -44,12 +44,6 @@ export default function AboutPage() {
             </div>
           ) : null}
           <div className="flex w-full flex-col gap-4">
-            <h2
-              id="about-heading"
-              className="text-3xl font-medium leading-normal text-zinc-700"
-            >
-              {bio.heading}
-            </h2>
             {bio.paragraphs.map((paragraph) => (
               <p
                 key={paragraph}
@@ -96,6 +90,17 @@ export default function AboutPage() {
             </ol>
           </section>
         ) : null}
+
+        <p className="max-w-2xl text-base leading-relaxed tracking-wide text-zinc-500 md:text-lg">
+          {aboutCta.before}
+          <a
+            href={`mailto:${site.email}`}
+            className="underline decoration-zinc-300 underline-offset-4 transition-colors hover:text-zinc-700"
+          >
+            {aboutCta.link}
+          </a>
+          {aboutCta.after}
+        </p>
       </div>
     </SiteChrome>
   );

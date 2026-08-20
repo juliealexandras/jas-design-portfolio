@@ -3,7 +3,7 @@
 /* Color, type, and shadow tokens used across the site — dark theme */
 @theme inline {
   --font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Permanent Marker", cursive;
+  --font-display: var(--font-young-serif), ui-serif, Georgia, serif;
   --color-ink: #fafafa;
   --color-ink-soft: #e4e4e7;
   --color-ink-muted: #a1a1aa;

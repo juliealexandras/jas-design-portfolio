@@ -1,11 +1,11 @@
-// Header logo — large brush-marker wordmark that links home
+// Header logo — large Young Serif wordmark that links home
 export function Wordmark({ className = "" }: { className?: string }) {
   return (
     <span
-      className={`font-display block leading-[0.85] text-white ${className}`}
+      className={`font-display block leading-none font-normal text-white ${className}`}
       style={{ WebkitFontSmoothing: "antialiased" }}
     >
-      Julie Spigner
+      julie spigner
     </span>
   );
 }

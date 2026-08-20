@@ -47,12 +47,12 @@ export function WorkDeck({
 
   return (
     <div
-      className="relative w-full overflow-clip rounded-[26px]"
+      className="relative w-full overflow-clip"
       role="region"
       aria-roledescription="carousel"
       aria-label={label}
     >
-      <div className="relative isolate aspect-[1920/1000] w-full overflow-hidden rounded-[26px] bg-zinc-900">
+      <div className="relative isolate aspect-[1920/1000] w-full overflow-hidden bg-zinc-900">
         <Image
           src={slide.src}
           alt={slide.alt}
@@ -60,6 +60,7 @@ export function WorkDeck({
           sizes="(min-width: 768px) 48rem, 100vw"
           className="object-cover"
           priority={index === 0}
+          unoptimized
         />
         <p
           className="absolute bottom-3 left-1/2 z-10 -translate-x-1/2 rounded-full border border-zinc-800 bg-zinc-900 px-3 pt-[5px] pb-[4px] text-sm font-medium tracking-[0.005em] text-white"
@@ -73,7 +74,7 @@ export function WorkDeck({
       </div>
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 rounded-[26px] border border-zinc-800"
+        className="pointer-events-none absolute inset-0 border border-zinc-800"
       />
       <button
         type="button"

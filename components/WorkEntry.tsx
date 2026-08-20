@@ -71,8 +71,8 @@ function WorkCover({ project }: { project: Project }) {
   const kind = coverKind(src);
 
   return (
-    <div className="relative w-full overflow-clip rounded-[26px]">
-      <div className="relative isolate aspect-video w-full overflow-hidden rounded-[26px] bg-zinc-900">
+    <div className="relative w-full overflow-clip">
+      <div className="relative isolate aspect-video w-full overflow-hidden bg-zinc-900">
         {kind === "video" && src ? (
           <WorkAnimatedCover src={src} alt={alt} kind="video" />
         ) : kind === "gif" && src ? (
@@ -96,7 +96,7 @@ function WorkCover({ project }: { project: Project }) {
       </div>
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 rounded-[26px] border border-zinc-800"
+        className="pointer-events-none absolute inset-0 border border-zinc-800"
       />
     </div>
   );

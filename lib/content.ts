@@ -8,6 +8,7 @@ export const site = {
   role: "Product designer",
   email: "juliealexandrastudio@gmail.com",
   linkedin: "https://www.linkedin.com/in/juliespigner/",
+  bluesky: "https://bsky.app/profile/juliealexandra.bsky.social",
   github: "https://github.com/juliealexandras",
   repo: "https://github.com/juliealexandras/jas-design-portfolio",
   changelogDate: "2026-08-19",
@@ -196,6 +197,9 @@ export const aboutCta = {
   link: "Connect with me",
   after: ".",
 };
+
+// Set to true to show the Bluesky link in the sidebar and footer.
+export const showBluesky = false;
 
 // Set to true to show the About portrait. Hidden until a real photo is ready.
 export const showPortrait = false;

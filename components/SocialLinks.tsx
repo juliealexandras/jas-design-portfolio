@@ -1,6 +1,6 @@
-import { site } from "@/lib/content";
+import { showBluesky, site } from "@/lib/content";
 
-// Header and footer LinkedIn / Bluesky / GitHub icons
+// Header and footer LinkedIn / GitHub icons (Bluesky is gated in content.ts)
 function LinkedInIcon() {
   return (
     <svg
@@ -48,9 +48,9 @@ const iconClass =
 
 const socialLinkList = [
   { label: "LinkedIn", href: site.linkedin, Icon: LinkedInIcon },
-  { label: "Bluesky", href: site.bluesky, Icon: BlueskyIcon },
+  { label: "Bluesky", href: site.bluesky, Icon: BlueskyIcon, hidden: !showBluesky },
   { label: "GitHub", href: site.github, Icon: GitHubIcon },
-];
+].filter((item) => !item.hidden);
 
 export function SocialLinks({
   compact = false,
@@ -87,39 +87,19 @@ export function SocialLinks({
 
   return (
     <ul className="flex items-center">
-      <li>
-        <a
-          href={site.linkedin}
-          className={cls}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn (opens in a new tab)"
-        >
-          <LinkedInIcon />
-        </a>
-      </li>
-      <li>
-        <a
-          href={site.bluesky}
-          className={cls}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Bluesky (opens in a new tab)"
-        >
-          <BlueskyIcon />
-        </a>
-      </li>
-      <li>
-        <a
-          href={site.github}
-          className={cls}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub (opens in a new tab)"
-        >
-          <GitHubIcon />
-        </a>
-      </li>
+      {socialLinkList.map(({ label, href, Icon }) => (
+        <li key={label}>
+          <a
+            href={href}
+            className={cls}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${label} (opens in a new tab)`}
+          >
+            <Icon />
+          </a>
+        </li>
+      ))}
     </ul>
   );
 }

@@ -44,11 +44,45 @@ function GitHubIcon() {
 }
 
 const iconClass =
-  "inline-flex size-11 items-center justify-center rounded-full text-zinc-500 transition-colors duration-200 hover:text-zinc-700";
+  "inline-flex size-11 items-center justify-center rounded-full text-zinc-500 transition-colors duration-200 hover:text-zinc-200";
 
-export function SocialLinks({ compact = false }: { compact?: boolean }) {
+const socialLinkList = [
+  { label: "LinkedIn", href: site.linkedin, Icon: LinkedInIcon },
+  { label: "Bluesky", href: site.bluesky, Icon: BlueskyIcon },
+  { label: "GitHub", href: site.github, Icon: GitHubIcon },
+];
+
+export function SocialLinks({
+  compact = false,
+  variant = "icons",
+}: {
+  compact?: boolean;
+  variant?: "icons" | "sidebar";
+}) {
+  // Sidebar: plain stacked text links, right-aligned on desktop — matches
+  // the page-nav links above it in the sidebar.
+  if (variant === "sidebar") {
+    return (
+      <ul className="flex flex-row flex-wrap gap-x-5 gap-y-2 md:flex-col md:items-end md:gap-y-3">
+        {socialLinkList.map(({ label, href }) => (
+          <li key={label}>
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lg tracking-[0.005em] text-zinc-400 transition-colors duration-200 ease-out hover:text-white md:text-xl"
+            >
+              {label}
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   const cls = compact
-    ? "inline-flex size-10 items-center justify-center rounded-full text-zinc-500 transition-colors duration-200 hover:text-zinc-700"
+    ? "inline-flex size-10 items-center justify-center rounded-full text-zinc-500 transition-colors duration-200 hover:text-zinc-200"
     : iconClass;
 
   return (

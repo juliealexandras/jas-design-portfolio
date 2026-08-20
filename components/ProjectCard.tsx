@@ -31,12 +31,12 @@ export function ProjectCard({
       aria-label={alt ?? `${title}, ${year}. ${caption}`}
     >
       <div className="relative w-full overflow-clip rounded-[26px]">
-        <div className="relative isolate aspect-[678/367.625] w-full overflow-hidden rounded-[26px] bg-[#e4e4e7]">
+        <div className="relative isolate aspect-[678/367.625] w-full overflow-hidden rounded-[26px] bg-zinc-900">
           <ProjectThumb shape={shape} accent={accent} />
           {locked ? (
-            <div className="absolute inset-0 flex items-center justify-center bg-white/20">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#f4f4f5] bg-white px-3 py-[5px] text-sm font-medium tracking-[0.005em] text-[#18181b]">
-                <LockIcon className="size-3.5 text-zinc-500" />
+            <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-900 px-3 py-[5px] text-sm font-medium tracking-[0.005em] text-white">
+                <LockIcon className="size-3.5 text-zinc-400" />
                 Coming soon
               </span>
             </div>
@@ -44,31 +44,31 @@ export function ProjectCard({
         </div>
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 rounded-[26px] border border-zinc-100"
+          className="pointer-events-none absolute inset-0 rounded-[26px] border border-zinc-800"
         />
         {/* Desktop: title + year overlay on the thumbnail */}
         <div className="absolute bottom-0 left-0 hidden p-3 md:block">
-          <div className="flex items-center justify-center rounded-full border border-[#f4f4f5] bg-white px-3 pt-[5px] pb-[4.8px]">
-            <p className="text-base font-medium leading-snug tracking-[0.005em] text-[#18181b]">
+          <div className="flex items-center justify-center rounded-full border border-zinc-800 bg-zinc-900 px-3 pt-[5px] pb-[4.8px]">
+            <p className="text-base font-medium leading-snug tracking-[0.005em] text-white">
               <span>{title}</span>
-              <span className="text-zinc-500"> • {year}</span>
+              <span className="text-zinc-400"> • {year}</span>
             </p>
           </div>
         </div>
       </div>
       {/* Desktop caption under the card */}
       <div className="hidden w-full items-start px-[13px] py-0 -mt-1.5 md:flex">
-        <p className="text-left text-base font-normal leading-snug tracking-[0.005em] text-zinc-500">
+        <p className="text-left text-base font-normal leading-snug tracking-[0.005em] text-zinc-400">
           {caption}
         </p>
       </div>
       {/* Mobile: title, year, and caption stacked below the thumbnail */}
       <div className="flex w-full flex-col items-start gap-1 px-[13px] py-0 text-base leading-snug tracking-[0.01em] md:hidden">
-        <p className="text-left text-[#18181b]">
+        <p className="text-left text-white">
           <span>{title}</span>
-          <span className="text-zinc-500"> • {year}</span>
+          <span className="text-zinc-400"> • {year}</span>
         </p>
-        <p className="w-full text-left font-normal leading-tight text-zinc-500">
+        <p className="w-full text-left font-normal leading-tight text-zinc-400">
           {caption}
         </p>
       </div>

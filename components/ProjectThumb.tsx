@@ -16,7 +16,7 @@ export function ProjectThumb({
       focusable="false"
       preserveAspectRatio="xMidYMid slice"
     >
-      <rect width="678" height="368" fill="#e4e4e7" />
+      <rect width="678" height="368" fill="#1c1c1f" />
       <rect width="678" height="368" fill={accent} opacity="0.55" />
       {shape === "bars" && (
         <g fill="#fff" opacity="0.55">

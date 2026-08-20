@@ -8,16 +8,16 @@ export default function Home() {
 
   return (
     <SiteChrome tab="work">
-      <div className="w-full px-6 pt-6 md:px-16 md:pt-8">
-        <p className="w-full text-base tracking-wide text-zinc-500 md:text-lg">
+      <div className="w-full pt-6 md:pt-8">
+        <p className="w-full text-base tracking-wide text-zinc-400 md:text-lg">
           {workIntro}
         </p>
       </div>
-      <div className="flex w-full flex-col px-6 py-6 md:px-16 md:pt-8 md:pb-2">
+      <div className="flex w-full flex-col py-6 md:pt-8 md:pb-2">
         {projects.map((project, i) => (
           <div
             key={project.slug}
-            className={i === 0 ? "pb-12 md:pb-16" : "border-t border-zinc-100 py-12 md:py-16"}
+            className={i === 0 ? "pb-12 md:pb-16" : "border-t border-zinc-900 py-12 md:py-16"}
           >
             <WorkEntry project={project} delayMs={i * 60} />
           </div>

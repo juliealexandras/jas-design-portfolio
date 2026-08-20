@@ -29,10 +29,10 @@ export function NotePost({ date, title, body, photos }: NotePostProps) {
       <time dateTime={date} className="text-sm tracking-wide text-zinc-500">
         {formatNoteDate(date)}
       </time>
-      <h2 className="text-lg font-medium tracking-[0.005em] text-[#18181b]">
+      <h2 className="text-lg font-medium tracking-[0.005em] text-white">
         {title}
       </h2>
-      <p className="text-base leading-relaxed tracking-wide text-zinc-500 md:text-lg">
+      <p className="text-base leading-relaxed tracking-wide text-zinc-400 md:text-lg">
         {clipped}
       </p>
       {photos && photos.length > 0 ? (

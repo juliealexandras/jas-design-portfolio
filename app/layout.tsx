@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import { Instrument_Sans } from "next/font/google";
+import { Young_Serif } from "next/font/google";
 import { site } from "@/lib/content";
+// Body type is self-hosted. Display type (wordmark) comes from Google Fonts
+// via next/font, which downloads Young Serif at build time and serves it locally.
+import "@fontsource-variable/instrument-sans";
 import "./globals.css";
 
-const instrumentSans = Instrument_Sans({
+const youngSerif = Young_Serif({
   subsets: ["latin"],
-  variable: "--font-instrument-sans",
+  weight: "400",
   display: "swap",
+  variable: "--font-young-serif",
 });
 
 // Browser tab title and search description for every page
@@ -21,8 +25,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${instrumentSans.variable} h-full antialiased`}>
-      <body className="min-h-full font-sans">{children}</body>
+    <html lang="en" className={`h-full antialiased ${youngSerif.variable}`}>
+      <body className="min-h-full bg-black font-sans">{children}</body>
     </html>
   );
 }

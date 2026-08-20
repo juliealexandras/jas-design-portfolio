@@ -1,78 +1,65 @@
 import Link from "next/link";
-import { Monogram } from "@/components/Monogram";
+import { Wordmark } from "@/components/Monogram";
 import { SocialLinks } from "@/components/SocialLinks";
 import { nav, site, type TabId } from "@/lib/content";
 
 // Intro under the logo. About uses a shorter tagline; Work, Notes, and
 // Playground share the main tagline.
 function Hero({ tab }: { tab: TabId }) {
-  if (tab === "about") {
-    return (
-      <div className="flex w-full flex-col items-start px-6 pb-2 pt-20 md:h-[176px] md:px-16 md:pb-6 md:pt-14">
-        <h1 className="w-full text-4xl font-medium leading-normal tracking-[0.0125em] text-[#3f3f46]">
-          {site.name}
-        </h1>
-        <p className="mt-1 w-full whitespace-pre-line text-base font-normal tracking-wide text-zinc-500 md:text-lg">
-          {site.aboutTagline}
-        </p>
-      </div>
-    );
-  }
+  const tagline = tab === "about" ? site.aboutTagline : site.tagline;
 
   return (
-    <div className="flex w-full flex-col items-start px-6 pb-2 pt-20 md:h-[176px] md:px-16 md:pb-6 md:pt-14">
-      <h1 className="w-full text-4xl font-medium leading-normal tracking-[0.0125em] text-[#3f3f46]">
-        {site.name}
-      </h1>
-      <div className="mt-1 w-full text-base font-normal tracking-wide text-zinc-500 md:max-w-3xl md:text-lg">
-        <p>{site.tagline}</p>
-      </div>
+    <div className="flex w-full flex-col items-start gap-3 pb-2 pt-2 md:pb-4">
+      <Link
+        href="/"
+        className="group -m-2 inline-block rounded-xl p-2 transition-transform duration-200 ease-out hover:scale-[1.01] active:scale-[0.99] motion-reduce:transition-none motion-reduce:hover:scale-100"
+        aria-label={`${site.name} — home`}
+      >
+        <Wordmark className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem]" />
+      </Link>
+      <p className="max-w-2xl whitespace-pre-line text-base font-normal tracking-wide text-zinc-400 md:text-lg">
+        {tagline}
+      </p>
     </div>
   );
 }
 
-// Primary pill navigation (hidden tabs are omitted)
-function TabNav({ tab }: { tab: TabId }) {
+// Right-hand sidebar: page nav, then social links. Sticky on desktop so it
+// stays in view while the feed below it scrolls; a plain stacked block on
+// mobile, shown above the main content.
+function Sidebar({ tab }: { tab: TabId }) {
   return (
-    <nav
-      className="flex w-full flex-col items-start px-6 pt-4 pb-0 md:px-16"
-      aria-label="Primary"
-    >
-      <ul className="flex items-start gap-1">
-        {nav.filter((item) => !item.hidden).map((item) => {
-          const active = item.id === tab;
-          return (
-            <li key={item.id}>
-              <Link
-                href={item.href}
-                aria-current={active ? "page" : undefined}
-                className="group relative z-10 flex cursor-pointer items-center justify-center rounded-full border border-transparent px-3.5 pt-[5px] pb-[4px]"
-              >
-                {active ? (
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-0 -z-10 rounded-full border border-white/50 bg-zinc-200/60 shadow-[var(--shadow-glass)] md:backdrop-blur-md"
-                  />
-                ) : null}
-                <span
-                  className={`relative z-10 shrink-0 text-lg font-medium tracking-[0.005em] text-nowrap transition-colors duration-200 ease-out ${
-                    active
-                      ? "text-[#52525b]"
-                      : "text-zinc-500 group-hover:text-[#52525b]"
-                  }`}
-                >
-                  {item.label}
-                </span>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
+    <aside className="order-1 flex w-full shrink-0 flex-row flex-wrap items-start justify-start gap-x-8 gap-y-4 pb-8 pt-8 md:order-2 md:sticky md:top-10 md:w-36 md:flex-col md:items-end md:gap-y-6 md:pb-0 md:pt-10 lg:w-44">
+      <nav aria-label="Primary">
+        <ul className="flex flex-row flex-wrap gap-x-5 gap-y-2 md:flex-col md:items-end md:gap-y-3">
+          {nav
+            .filter((item) => !item.hidden)
+            .map((item) => {
+              const active = item.id === tab;
+              return (
+                <li key={item.id}>
+                  <Link
+                    href={item.href}
+                    aria-current={active ? "page" : undefined}
+                    className={`text-lg tracking-[0.005em] transition-colors duration-200 ease-out md:text-xl ${
+                      active
+                        ? "text-white"
+                        : "text-zinc-400 hover:text-white"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
+        </ul>
+      </nav>
+      <SocialLinks variant="sidebar" />
+    </aside>
   );
 }
 
-// Shared shell: skip link, header, tabs, page content, footer
+// Shared shell: skip link, header, sidebar nav, page content, footer
 export function SiteChrome({
   children,
   tab,
@@ -81,55 +68,45 @@ export function SiteChrome({
   tab: TabId;
 }) {
   return (
-    <div className="relative flex min-h-screen w-full flex-col items-center bg-white">
+    <div className="relative flex min-h-screen w-full flex-col items-center bg-black">
       <a href="#main" className="skip-link">
         Skip to content
       </a>
 
-      <header className="relative w-full shrink-0">
-        <div className="flex w-full items-start justify-between px-6 pt-8 pb-4 md:px-16 md:pb-8">
-        <Link
-  href="/"
-  className="group relative -m-2 inline-block shrink-0 rounded-xl p-2 transition-transform duration-200 ease-out hover:scale-[1.02] active:scale-95 motion-reduce:transition-none motion-reduce:hover:scale-100"
-  aria-label={`${site.name} — home`}
->
-  <Monogram className="block size-8 md:size-11" />
-</Link>
-          <SocialLinks />
-        </div>
-        <Hero tab={tab} />
-      </header>
+      <div className="flex w-full max-w-6xl flex-1 flex-col px-6 md:flex-row md:items-start md:gap-12 md:px-16">
+        <Sidebar tab={tab} />
 
-      <div className="flex w-full shrink-0 flex-col items-center pt-0 pb-2 md:pb-4">
-        <TabNav tab={tab} />
-        <div className="w-full px-6 pt-3 md:px-16">
-          <div className="h-px w-full bg-zinc-100" />
+        <div className="order-2 flex min-w-0 flex-1 flex-col md:order-1">
+          <header className="w-full shrink-0 pt-10 md:pt-16">
+            <Hero tab={tab} />
+          </header>
+
+          <div className="w-full pt-3 md:pt-6">
+            <div className="h-px w-full bg-zinc-900" />
+          </div>
+
+          <main id="main" className="w-full flex-1">
+            {children}
+          </main>
+
+          <footer className="mt-auto w-full pt-16 pb-10 md:pt-24 md:pb-12">
+            <div className="h-px w-full bg-zinc-900" />
+            <p className="mt-8 text-sm text-zinc-500">
+              Designed by a human and engineered with Next.js + Cursor + Claude.
+            </p>
+            <p className="mt-1 text-xs uppercase tracking-wide text-zinc-500">
+              <a
+                href={site.repo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-zinc-700 underline-offset-4 transition-colors hover:text-zinc-300"
+              >
+                Change Log {site.changelogDate}
+              </a>
+            </p>
+          </footer>
         </div>
       </div>
-
-      <main id="main" className="w-full flex-1">
-        {children}
-      </main>
-
-      <footer className="mt-auto w-full px-6 pt-16 pb-10 md:px-16 md:pt-24 md:pb-12">
-        <div className="h-px w-full bg-zinc-100" />
-        <div className="flex flex-col items-start gap-4 pt-10 md:flex-row md:items-end md:justify-between">
-          <SocialLinks compact />
-        </div>
-        <p className="mt-8 text-sm text-zinc-500">
-          Designed by a human and engineered with Next.js + Cursor + Claude.
-        </p>
-        <p className="mt-1 text-xs uppercase tracking-wide text-zinc-500">
-          <a
-            href={site.repo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline decoration-zinc-300 underline-offset-4 transition-colors hover:text-zinc-700"
-          >
-            Change Log {site.changelogDate}
-          </a>
-        </p>
-      </footer>
     </div>
   );
 }

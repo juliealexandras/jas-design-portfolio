@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
-import { Instrument_Sans } from "next/font/google";
 import { site } from "@/lib/content";
+// Self-hosted fonts (npm packages) instead of next/font/google, so the site
+// doesn't depend on reaching fonts.googleapis.com at build or runtime.
+import "@fontsource-variable/instrument-sans";
+import "@fontsource/permanent-marker";
 import "./globals.css";
-
-const instrumentSans = Instrument_Sans({
-  subsets: ["latin"],
-  variable: "--font-instrument-sans",
-  display: "swap",
-});
 
 // Browser tab title and search description for every page
 export const metadata: Metadata = {
@@ -21,8 +18,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${instrumentSans.variable} h-full antialiased`}>
-      <body className="min-h-full font-sans">{children}</body>
+    <html lang="en" className="h-full antialiased">
+      <body className="min-h-full bg-black font-sans">{children}</body>
     </html>
   );
 }

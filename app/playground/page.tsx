@@ -15,12 +15,12 @@ export default function PlaygroundPage() {
 
   return (
     <SiteChrome tab="playground">
-      <div className="w-full px-6 pt-6 md:px-16 md:pt-8">
-        <p className="max-w-xl text-base tracking-wide text-zinc-500 md:text-lg">
+      <div className="w-full pt-6 md:pt-8">
+        <p className="max-w-xl text-base tracking-wide text-zinc-400 md:text-lg">
           A few experiments that aren&apos;t public yet. Check back soon.
         </p>
       </div>
-      <div className="grid w-full grid-cols-1 gap-8 px-6 py-6 md:grid-cols-2 md:gap-6 md:px-16 md:pt-6 md:pb-2">
+      <div className="grid w-full grid-cols-1 gap-8 py-6 md:grid-cols-2 md:gap-6 md:pt-6 md:pb-2">
         {playground.map((item, i) => (
           <ProjectCard
             key={item.title}

@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
-/* Color, type, and shadow tokens used across the site */
+/* Color, type, and shadow tokens used across the site — dark theme */
 @theme inline {
-  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
-  --color-ink: #18181b;
-  --color-ink-soft: #3f3f46;
-  --color-ink-muted: #71717a;
-  --color-tab: #52525b;
-  --color-card: #e4e4e7;
-  --color-hairline: #f4f4f5;
+  --font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Permanent Marker", cursive;
+  --color-ink: #fafafa;
+  --color-ink-soft: #e4e4e7;
+  --color-ink-muted: #a1a1aa;
+  --color-tab: #d4d4d8;
+  --color-card: #1c1c1f;
+  --color-hairline: #27272a;
   --color-pulse: #10b981;
-  --shadow-glass: 0 1px 2px rgb(0 0 0 / 0.04), 0 4px 12px rgb(0 0 0 / 0.04);
+  --shadow-glass: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.35);
 }
 
 html {
@@ -24,13 +25,13 @@ html {
 }
 
 body {
-  background: #fff;
+  background: #000;
   color: var(--color-ink-soft);
   font-family: var(--font-sans);
 }
 
 :focus-visible {
-  outline: 2px solid #a1a1aa;
+  outline: 2px solid #71717a;
   outline-offset: 2px;
   border-radius: 6px;
 }
@@ -43,8 +44,8 @@ body {
   z-index: 100;
   transform: translateY(-120%);
   border-radius: 9999px;
-  background: #18181b;
-  color: #fff;
+  background: #fafafa;
+  color: #18181b;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   font-weight: 500;

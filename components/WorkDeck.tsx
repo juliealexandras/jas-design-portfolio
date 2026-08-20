@@ -26,7 +26,7 @@ function CaretIcon({ direction }: { direction: "prev" | "next" }) {
 }
 
 const buttonClass =
-  "absolute top-1/2 z-10 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#f4f4f5] bg-white text-[#18181b] shadow-[var(--shadow-glass)] transition-colors hover:bg-zinc-50";
+  "absolute top-1/2 z-10 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900 text-white shadow-[var(--shadow-glass)] transition-colors hover:bg-zinc-800";
 
 export function WorkDeck({
   slides,
@@ -52,7 +52,7 @@ export function WorkDeck({
       aria-roledescription="carousel"
       aria-label={label}
     >
-      <div className="relative isolate aspect-[1920/1000] w-full overflow-hidden rounded-[26px] bg-[#e4e4e7]">
+      <div className="relative isolate aspect-[1920/1000] w-full overflow-hidden rounded-[26px] bg-zinc-900">
         <Image
           src={slide.src}
           alt={slide.alt}
@@ -62,7 +62,7 @@ export function WorkDeck({
           priority={index === 0}
         />
         <p
-          className="absolute bottom-3 left-1/2 z-10 -translate-x-1/2 rounded-full border border-[#f4f4f5] bg-white px-3 pt-[5px] pb-[4px] text-sm font-medium tracking-[0.005em] text-[#18181b]"
+          className="absolute bottom-3 left-1/2 z-10 -translate-x-1/2 rounded-full border border-zinc-800 bg-zinc-900 px-3 pt-[5px] pb-[4px] text-sm font-medium tracking-[0.005em] text-white"
           aria-hidden="true"
         >
           {index + 1} / {total}
@@ -73,7 +73,7 @@ export function WorkDeck({
       </div>
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 rounded-[26px] border border-zinc-100"
+        className="pointer-events-none absolute inset-0 rounded-[26px] border border-zinc-800"
       />
       <button
         type="button"

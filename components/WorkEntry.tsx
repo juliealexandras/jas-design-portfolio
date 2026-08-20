@@ -40,7 +40,7 @@ function OverviewText({
         href={link.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="underline decoration-zinc-300 underline-offset-4 transition-colors hover:text-zinc-700"
+        className="underline decoration-zinc-600 underline-offset-4 transition-colors hover:text-white"
       >
         {link.label}
         <span className="sr-only"> (opens in a new tab)</span>
@@ -72,7 +72,7 @@ function WorkCover({ project }: { project: Project }) {
 
   return (
     <div className="relative w-full overflow-clip rounded-[26px]">
-      <div className="relative isolate aspect-video w-full overflow-hidden rounded-[26px] bg-[#e4e4e7]">
+      <div className="relative isolate aspect-video w-full overflow-hidden rounded-[26px] bg-zinc-900">
         {kind === "video" && src ? (
           <WorkAnimatedCover src={src} alt={alt} kind="video" />
         ) : kind === "gif" && src ? (
@@ -96,7 +96,7 @@ function WorkCover({ project }: { project: Project }) {
       </div>
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 rounded-[26px] border border-zinc-100"
+        className="pointer-events-none absolute inset-0 rounded-[26px] border border-zinc-800"
       />
     </div>
   );
@@ -123,13 +123,13 @@ export function WorkEntry({
       >
         {formatWorkDate(project.date)}
       </time>
-      <h2 className="text-xl font-medium tracking-[0.005em] text-[#3f3f46] md:text-2xl">
+      <h2 className="text-xl font-medium tracking-[0.005em] text-white md:text-2xl">
         {project.titleHref ? (
           <a
             href={project.titleHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline decoration-zinc-300 underline-offset-4 transition-colors hover:text-zinc-700"
+            className="underline decoration-zinc-600 underline-offset-4 transition-colors hover:text-zinc-300"
           >
             {project.title}
             <span className="sr-only"> (opens in a new tab)</span>
@@ -138,7 +138,7 @@ export function WorkEntry({
           project.title
         )}
       </h2>
-      <p className="max-w-2xl text-base leading-relaxed tracking-wide text-zinc-500 md:text-lg">
+      <p className="max-w-2xl text-base leading-relaxed tracking-wide text-zinc-400 md:text-lg">
         <OverviewText
           text={overview}
           links={project.overviewLinks}
@@ -146,7 +146,7 @@ export function WorkEntry({
       </p>
       <figure className="flex w-full max-w-3xl flex-col gap-3 pt-1">
         <WorkCover project={project} />
-        <figcaption className="text-center text-sm font-bold leading-snug tracking-[0.005em] text-zinc-500">
+        <figcaption className="text-center text-sm font-bold leading-snug tracking-[0.005em] text-zinc-400">
           {project.caption}
         </figcaption>
       </figure>
